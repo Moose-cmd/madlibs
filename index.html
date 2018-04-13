@@ -3,23 +3,47 @@
     <title>
         madlibs
     </title>
-
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
 <body>
 
 enter you thing and then u winn get your madlib
 
-<form>
-    <table border="1" cellspacing="10" cellpadding="50" align="center">
-        <tr><td>adjective:</td><td><input name="adjective" type ="text"/></td></tr>
-        <tr><td> name:  </td><td><input name="name" type ="text"/></td></tr>
-        <tr><td> date:  </td><td><input name="date" type ="text"/></td></tr>
-        <tr><td> noun:  </td><td><input name="noun" type ="text"/></td></tr>
-        <tr><td>signed: </td><td> <input name="signed" type ="text"/></td></tr>
-    </table>
-    <input type="submit"/>
-</form>
-
+<div id="madlib">
+    <form>
+        <table border="1" cellspacing="10" cellpadding="50" align="center">
+            <tr><td>adjective:</td><td><input name="adjective" type ="text"/></td></tr>
+            <tr><td> name:  </td><td><input :name="name" type ="text"/></td></tr>
+            <tr><td> date:  </td><td><input :name="date" type ="text"/></td></tr>
+            <tr><td> noun:  </td><td><input :name="noun" type ="text"/></td></tr>
+            <tr><td>signed: </td><td> <input :name="signed" type ="text"/></td></tr>
+        </table>
+        <input type="submit"/>
+    </form>
+    <div style="display: block">
+        Date: {{ date  }}
+        Please excuse: {{  name }}
+        Who is way to {{  adjective  }}
+        To attend {{  noun  }} class
+        Signed {{signed}}
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#madlib',
+        data: {
+            date: '1-2-3',
+            signed: 'kick me',
+            noun: 'air',
+            adjective: 'fat',
+            name: 'alek'
+        },
+        created: function() {
+        }
+    });
+    //alert('aokasf')
+</script>
 
 
 
