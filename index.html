@@ -4,40 +4,44 @@
         madlibs
     </title>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
 </head>
-<body>
 
+<body>
 enter you thing and then u winn get your madlib
 
 <div id="madlib">
-    <form>
-        <table border="1" cellspacing="10" cellpadding="50" align="center">
-            <tr><td>adjective:</td><td><input name="adjective" type ="text"/></td></tr>
-            <tr><td> name:  </td><td><input :name="name" type ="text"/></td></tr>
-            <tr><td> date:  </td><td><input :name="date" type ="text"/></td></tr>
-            <tr><td> noun:  </td><td><input :name="noun" type ="text"/></td></tr>
-            <tr><td>signed: </td><td> <input :name="signed" type ="text"/></td></tr>
-        </table>
-        <input type="submit"/>
-    </form>
-    <div style="display: block">
-        Date: {{ date  }}
-        Please excuse: {{  name }}
-        Who is way to {{  adjective  }}
-        To attend {{  noun  }} class
-        Signed {{signed}}
-    </div>
+    <table v-if="submitted == false" border="1" cellspacing="10" cellpadding="50" align="center">
+        <tr><td>adjective:</td><td><input name="adjective" type ="text" v-model="adjective" /></td></tr>
+        <tr><td> name:  </td><td><input :name="name" type ="text" v-model="name" /></td></tr>
+        <tr><td> date:  </td><td><input :name="date" type ="text" v-model="date" /></td></tr>
+        <tr><td> noun:  </td><td><input :name="noun" type ="text" v-model="noun" /></td></tr>
+        <tr><td>signed: </td><td> <input :name="signed" type ="text" v-model="signed" /></td></tr>
+    </table>
+    <button v-on:click="submitted = true" />dadadadasasdadfafafas</button>
+    <table v-if="submitted == true" border="1" align="center">
+        <tr><th align="right">Date:</th><td>{{ date  }}</td></tr>
+        <tr><th align ="right">Please excuse:</th><td> {{  name }} </td></tr>
+        <tr><th align ="right">Who is way to</th><td> {{  adjective  }}</td></tr>
+        <tr><th align ="right">To attend</th><td> {{  noun  }} class</td></tr>
+        <tr><td colspan="2"> Signed {{signed}} </td></tr>
+    </table>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 <script>
     var app = new Vue({
         el: '#madlib',
         data: {
-            date: '1-2-3',
-            signed: 'kick me',
-            noun: 'air',
-            adjective: 'fat',
-            name: 'alek'
+            date: '',
+            signed: '',
+            noun: '',
+            adjective: '',
+            name: '',
+            submitted: false
         },
         created: function() {
         }
